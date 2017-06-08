@@ -16,3 +16,6 @@
 .glide/
 
 .idea
+
+# Mac crap
+.DS_Store
