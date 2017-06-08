@@ -1,0 +1,13 @@
+pipeline:
+  build:
+    image: golang:${TAG}
+    commands:
+      - go get
+      - go build
+      - go test
+
+  matrix:
+    TAG:
+      - 1.7
+      - 1.8
+      - latest
