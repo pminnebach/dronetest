@@ -1,4 +1,13 @@
 pipeline:
+  scp:
+    image: appleboy/drone-scp
+      host: ${docker01_host}
+      username: ${docker01_username}
+      password: ${docker01_password}
+      target: /release
+      source: WindowsVersion/*.exe
+      secrets: [ docker01_username, docker01_host, docker01_password ]
+
   build:
     image: golang:${GO_VERSION}
     environment:
@@ -7,12 +16,6 @@ pipeline:
     commands:
       - go get golang.org/x/sys/windows/registry
       - go build -o WindowsVersion_$GOOS_$GOARCH.exe
-
-  scp:
-    image: appleboy/drone-scp
-      host: ${docker01_host}
-      target: /release
-      source: WindowsVersion/*.exe
 
 matrix:
   GO_VERSION:
