@@ -1,13 +1,6 @@
 pipeline:
-  build:
-    image: golang:${TAG}
+  backend:
+    image: golang
     commands:
-      - go get
       - go build
       - go test
-
-  matrix:
-    TAG:
-      - 1.7
-      - 1.8
-      - latest
