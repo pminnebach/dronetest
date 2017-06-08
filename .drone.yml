@@ -10,7 +10,7 @@ pipeline:
       - go get golang.org/x/sys/windows/registry
       - pwd
       - ls -al
-      - go build -o WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
+      - go build -o ./release/WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
       - pwd
       - ls -al
 
@@ -18,7 +18,7 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - node_modules
+      - release
     volumes:
       - /home/pminnebach/docker/release:/cache
 
