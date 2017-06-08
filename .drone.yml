@@ -10,7 +10,7 @@ pipeline:
       - go get golang.org/x/sys/windows/registry
       - pwd
       - ls -al
-      - go build -o WindowsVersion_$GOOS_$GOARCH.exe
+      - go build -o WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
       - pwd
       - ls -al
 
