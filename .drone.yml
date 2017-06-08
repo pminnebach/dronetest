@@ -1,12 +1,17 @@
 pipeline:
   build:
     image: golang:${GO_VERSION}
+    environment:
+      - GOOS=windows
+      - GOARCH=${DO_ARCH}
     commands:
-      - go build
-      - go test
+      - go build -o WindowsVersion_$GOOS_$GOARCH.exe
 
 matrix:
   GO_VERSION:
     - 1.8
     - 1.7
     - latest
+  GO_ARCH:
+    - 386
+    - amd64
