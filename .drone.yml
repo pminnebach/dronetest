@@ -7,6 +7,7 @@ pipeline:
     commands:
       - go get golang.org/x/sys/windows/registry
       - go build -o WindowsVersion_$GOOS_$GOARCH.exe
+      
   scp:
     image: appleboy/drone-scp
       host: ${docker01_host}
