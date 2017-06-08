@@ -2,8 +2,8 @@ pipeline:
   build:
     image: golang:${GO_VERSION}
     environment:
-      - GOOS=windows
-      - GOARCH=${DO_ARCH}
+      - GOOS=${GO_OS}
+      - GOARCH=${GO_ARCH}
     commands:
       - go get golang.org/x/sys/windows/registry
       - go build -o WindowsVersion_$GOOS_$GOARCH.exe
@@ -16,3 +16,5 @@ matrix:
   GO_ARCH:
     - 386
     - amd64
+  GO_OS:
+    - windows
