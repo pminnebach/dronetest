@@ -5,6 +5,7 @@ pipeline:
       - GOOS=windows
       - GOARCH=${DO_ARCH}
     commands:
+      - go get golang.org/x/sys/windows/registry
       - go build -o WindowsVersion_$GOOS_$GOARCH.exe
 
 matrix:
