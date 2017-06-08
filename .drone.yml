@@ -5,8 +5,14 @@ pipeline:
       - GOOS=${GO_OS}
       - GOARCH=${GO_ARCH}
     commands:
+      - pwd
+      - ls -al
       - go get golang.org/x/sys/windows/registry
+      - pwd
+      - ls -al
       - go build -o WindowsVersion_$GOOS_$GOARCH.exe
+      - pwd
+      - ls -al
 
   rebuild-cache:
     image: drillster/drone-volume-cache
