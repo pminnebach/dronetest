@@ -14,7 +14,7 @@ pipeline:
     mount:
       - node_modules
     volumes:
-      - ~/docker/release:/cache
+      - /home/pminnebach/docker/release:/cache
 
 matrix:
   GO_VERSION:
@@ -26,4 +26,3 @@ matrix:
     - amd64
   GO_OS:
     - windows
-    
