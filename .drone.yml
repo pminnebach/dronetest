@@ -28,9 +28,9 @@ pipeline:
 
   artifactory:
     image: athieriot/drone-artifactory
-    url: ${art_url}
-    username: ${art_user}
-    password: ${art_pass}
+    url: ${ARTIFACTORY_URL}
+    username: ${ARTIFACTORY_USERNAME}
+    password: ${ARTIFACTORY_PASSWORD}
     group_id: com.company
     artifact_id: awesome-lib
     version: 1.0-SNAPSHOT
