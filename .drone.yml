@@ -7,9 +7,12 @@ pipeline:
     commands:
       - pwd
       - ls -al
-      - go get golang.org/x/sys/windows/registry
-      - pwd
-      - ls -al
+      - go get -u golang.org/x/sys/windows/registry
+      - gofmt -w $(find . -type f -name *.go | grep -v /vendor/)
+      # Add if you have tests and use /vendor
+#      - go test -cover $(go list ./... | grep -v /vendor/)
+      # Add if you have tests and don't /vendor
+      - go test -cover $(go list ./...)
       - go build -o ./release/WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
       - pwd
       - ls -al
