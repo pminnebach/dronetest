@@ -19,7 +19,7 @@ pipeline:
     mount:
       - release
     volumes:
-      - /home/pminnebach/docker:/cache/pminnebach/dronetest
+      - /home/pminnebach/docker/release:/cache/pminnebach/dronetest
 
 matrix:
   GO_VERSION:
