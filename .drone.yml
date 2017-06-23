@@ -14,6 +14,7 @@ pipeline:
       - pwd
       - ls -al
       - ls -al release/
+      - echo ${art_user}
       
   rebuild-cache:
     image: drillster/drone-volume-cache
@@ -32,16 +33,16 @@ pipeline:
     artifact_id: awesome-lib
     version: 1.0-SNAPSHOT
     files:
-      - WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
+      - release/WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
 
 matrix:
   GO_VERSION:
-    - 1.8
-    - 1.7
+//    - 1.8
+//    - 1.7
     - latest
   GO_ARCH:
     - 386
-    - amd64
+//    - amd64
   GO_OS:
     - windows
 
