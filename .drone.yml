@@ -23,6 +23,17 @@ pipeline:
     volumes:
       - /home/pminnebach/docker/release:/cache/pminnebach/dronetest
 
+  artifactory:
+    image: athieriot/drone-artifactory
+    url: ${art_url}
+    username: ${art_user}
+    password: ${art_pass}
+    group_id: com.company
+    artifact_id: awesome-lib
+    version: 1.0-SNAPSHOT
+    files:
+      - WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
+
 matrix:
   GO_VERSION:
     - 1.8
