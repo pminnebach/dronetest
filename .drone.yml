@@ -17,7 +17,6 @@ pipeline:
       - echo ${art_user}
       - echo ${ART_USER}
       - echo $ART_USER
-      - [ ART_USER ]
       
   rebuild-cache:
     image: drillster/drone-volume-cache
