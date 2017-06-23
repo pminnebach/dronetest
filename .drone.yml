@@ -36,6 +36,7 @@ pipeline:
     version: 1.0-SNAPSHOT
     files:
       - release/WindowsVersion-$GOOS-$GOARCH-$GO_VERSION.exe
+      
 
 matrix:
   GO_VERSION:
