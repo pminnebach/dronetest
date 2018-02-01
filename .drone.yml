@@ -23,9 +23,6 @@ pipeline:
 
 matrix:
   GO_VERSION:
-    - 1.9
-    - 1.8
-    - 1.7
     - latest
   GO_ARCH:
     - 386
@@ -33,6 +30,4 @@ matrix:
   GO_OS:
     - windows
     - darwin
-    - freebsd 
     - linux
-
