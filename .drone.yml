@@ -1,6 +1,33 @@
 pipeline:
-  backend:
-    image: golang
+  build:
+    image: golang:${GO_VERSION}
+    environment:
+      - GOOS=${GO_OS}
+      - GOARCH=${GO_ARCH}
     commands:
-      - go build
-      - go test
+      - gofmt -w $(find . -type f -name *.go | grep -v /vendor/)
+      # Add if you have tests and use /vendor
+#      - go test -cover $(go list ./... | grep -v /vendor/)
+      # Add if you have tests and don't /vendor
+#      - go test -cover $(go list ./...)
+      - go build -o ./release/hello-$GOOS-$GOARCH-$GO_VERSION.exe
+      
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - release
+    volumes:
+      - /home/pminnebach/docker/release:/cache/pminnebach/dronetest
+
+matrix:
+  GO_VERSION:
+    - latest
+  GO_ARCH:
+    - 386
+    - amd64
+  GO_OS:
+    - windows
+    - linux
+    - darwin
+    
