@@ -30,12 +30,9 @@ matrix:
   GO_ARCH:
     - 386
     - amd64
-    - arm
-    - arm64
   GO_OS:
     - windows
-    - darwin 
-    - dragonfly 
+    - darwin
     - freebsd 
     - linux
 
