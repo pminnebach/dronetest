@@ -5,7 +5,7 @@ pipeline:
       - GOOS=${GO_OS}
       - GOARCH=${GO_ARCH}
     commands:
-      - gofmt -w $(find . -type f -name *.go | grep -v /vendor/)
+#      - gofmt -w $(find . -type f -name *.go | grep -v /vendor/)
       # Add if you have tests and use /vendor
 #      - go test -cover $(go list ./... | grep -v /vendor/)
       # Add if you have tests and don't /vendor
