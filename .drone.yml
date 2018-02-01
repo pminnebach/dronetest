@@ -31,3 +31,4 @@ matrix:
     - amd64
   GO_OS:
     - windows
+
