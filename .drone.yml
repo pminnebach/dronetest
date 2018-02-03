@@ -20,6 +20,15 @@ pipeline:
       - release
     volumes:
       - /home/pminnebach/docker/release:/cache/pminnebach/dronetest
+      
+  s3:
+    image: plugins/s3
+    bucket: my-bucket-name
+    secrets: [ minio_access_key, minio_secret_key ]
+    source: release/**/*
+    target: /philip/windowsversion
+    path_style: true
+    endpoint: https://faas01.mybiznez.wtf:9011
 
 matrix:
   GO_VERSION:
